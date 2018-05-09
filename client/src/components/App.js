@@ -1,6 +1,6 @@
 // Rendering layer control (React Router)
 import React, { PureComponent, Fragment } from 'react';
-import { BrowserRouter, HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 
@@ -33,16 +33,16 @@ class App extends PureComponent<Props> {
   }
   render() {
     return (
-      <HashRouter>
-        <div>
+      <BrowserRouter>
+        <Fragment>
           <Header />
           <AppContent>
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
           </AppContent>
-        </div>
-      </HashRouter>
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }
