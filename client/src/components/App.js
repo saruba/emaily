@@ -37,7 +37,7 @@ class App extends PureComponent<Props> {
         <Fragment>
           <Header />
           <AppContent>
-            <Route exact path="/" component={Landing} />{' '}
+            <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
           </AppContent>
