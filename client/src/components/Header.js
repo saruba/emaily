@@ -39,9 +39,9 @@ class Header extends PureComponent<Props> {
         return <CircularProgress />;
       case false:
         return (
-          <a href="/auth/google" color="inherit">
+          <Button href="/auth/google" color="inherit">
             Login
-          </a>
+          </Button>
         );
       default:
         return (
@@ -61,7 +61,6 @@ class Header extends PureComponent<Props> {
             >
               Logout
             </Button>
-            <a href="logout">logout</a>
           </Fragment>
         );
     }
