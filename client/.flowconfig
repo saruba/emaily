@@ -1,6 +1,6 @@
 [ignore]
-node_modules/*
-
+.*/node_modules/npm/node_modules/config-chain/test/broken.json
+.*/node_modules/config-chain/test/.*
 [include]
 
 [libs]

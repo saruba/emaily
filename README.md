@@ -6,4 +6,3 @@ Replace:
 * Redux-Saga
 * Fetch
 * Yarn
-* Flow

@@ -35,6 +35,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -43,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
+    "flow-bin": "^0.71.0",
     "prettier": "^1.12.1"
   }
 }
