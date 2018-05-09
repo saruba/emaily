@@ -1,0 +1,4 @@
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_REQUESTED = 'FETCH_REQUESTED';
+export const FETCH_SUCCEEDED = 'FETCH_SUCCEEDED';
+export const SUBMIT_TOKEN = 'SUBMIT_TOKEN';
