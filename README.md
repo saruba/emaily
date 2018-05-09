@@ -1,9 +1,7 @@
 # Emaily - MERN APP
 
-Use this projecto to test:
+Replace:
 
-* Structure Project
-* Mongo
 * Material-UI
 * Redux-Saga
 * Fetch
