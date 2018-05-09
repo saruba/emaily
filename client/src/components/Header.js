@@ -61,6 +61,7 @@ class Header extends PureComponent<Props> {
             >
               Logout
             </Button>
+            <a href="logout">logout</a>
           </Fragment>
         );
     }
