@@ -34,14 +34,14 @@ class App extends PureComponent<Props> {
   render() {
     return (
       <BrowserRouter>
-        <Fragment>
+        <div>
           <Header />
           <AppContent>
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
           </AppContent>
-        </Fragment>
+        </div>
       </BrowserRouter>
     );
   }
