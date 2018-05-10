@@ -6,13 +6,13 @@ const cookiesSessionn = require('cookie-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
-const authRoutes = require('./routes/authRoutes');
-const billingRoutes = require('./routes/billingRoutes');
-const surveyRoutes = require('./routes/surveyRoutes');
-
 require('./models/User');
 require('./models/Survey');
 require('./services/passport');
+
+const authRoutes = require('./routes/authRoutes');
+const billingRoutes = require('./routes/billingRoutes');
+const surveyRoutes = require('./routes/surveyRoutes');
 
 mongoose.connect(keys.mongoURI);
 
@@ -24,8 +24,8 @@ app.use(bodyParser.json());
 app.use(
   cookiesSessionn({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
+    keys: [keys.cookieKey],
+  }),
 );
 app.use(passport.initialize());
 app.use(passport.session());

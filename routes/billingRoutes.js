@@ -9,7 +9,7 @@ module.exports = app => {
       amount: 500,
       currency: 'usd',
       description: '$5 dolars for 5 email',
-      source: req.body.id
+      source: req.body.id,
     });
 
     req.user.credits += 5;
