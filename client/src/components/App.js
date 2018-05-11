@@ -1,7 +1,6 @@
 // Rendering layer control (React Router)
 import React, { PureComponent, Fragment } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Typography from 'material-ui/Typography';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
@@ -9,17 +8,8 @@ import * as actions from '../actions';
 import Header from './Header';
 import AppContent from './AppContent';
 import Landing from './Landing';
-
-const Dashboard = () => (
-  <Typography variant="title" gutterBottom>
-    Dashboard
-  </Typography>
-);
-const SurveyNew = () => (
-  <Typography variant="title" gutterBottom>
-    Survey new
-  </Typography>
-);
+import Dashboard from './Dashboard';
+import SurveyNew from './SurveyNew';
 
 type Props = {
   // fetchUser: Function,
