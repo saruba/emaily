@@ -1,17 +1,27 @@
 import React, { PureComponent } from 'react';
-import Typography from 'material-ui/Typography';
 import SurveyForm from './SurveyForm';
+import SurveyFormReview from './SurveyFormReview';
 
 class SurveyNew extends PureComponent {
-  render() {
-    return (
-      <section>
-        <Typography variant="title" gutterBottom>
-          New Survey
-        </Typography>
-        <SurveyForm />
-      </section>
+  state = {
+    showReview: false,
+  };
+  showReview = () => {
+    this.setState({ showReview: true });
+  };
+  hideReview = () => {
+    this.setState({ showReview: false });
+  };
+  handleSubmit = values => console.log(values);
+  renderContent() {
+    return this.state.showReview ? (
+      <SurveyFormReview onCancel={this.hideReview} />
+    ) : (
+      <SurveyForm onSurveySubmit={this.showReview} />
     );
+  }
+  render() {
+    return <section>{this.renderContent()}</section>;
   }
 }
 

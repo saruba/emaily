@@ -36,7 +36,7 @@ class Header extends PureComponent<Props> {
     const { auth, classes } = this.props;
     switch (auth) {
       case null:
-        return <CircularProgress />;
+        return <CircularProgress color="secondary" />;
       case false:
         return (
           <Button href="/auth/google" color="inherit">

@@ -1,11 +1,14 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { Link } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 
+import formFields from './formFields';
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const styles = theme => ({
   container: {
@@ -15,57 +18,40 @@ const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
-    overflowX: 'hidden',
     marginTop: theme.spacing.unit * 3,
+    overflowX: 'hidden',
   }),
 });
 type Props = {
   handleSubmit: Function,
+  onSurveySubmit: Function,
   classes: {},
 };
 
-const SurveyForm = ({ handleSubmit, classes }: Props) => (
+const renderFields = () =>
+  formFields.map(field => (
+    <Field key={field.name} type="text" {...field} component={SurveyField} />
+  ));
+
+const SurveyForm = ({ handleSubmit, onSurveySubmit, classes }: Props) => (
   <form
+    onSubmit={handleSubmit(onSurveySubmit)}
     className={classes.container}
-    onSubmit={handleSubmit}
     autoComplete="off"
   >
     <Paper className={classes.root} elevation={4}>
       <Grid container spacing={16} justify="space-between">
         <Grid item xs={12}>
-          <Field
-            name="recipients"
-            type="text"
-            label="Recipients"
-            component={SurveyField}
-          />
-          <Field
-            name="subject"
-            type="text"
-            label="Subject"
-            component={SurveyField}
-          />
-          <Field
-            name="title"
-            type="text"
-            label="Title"
-            component={SurveyField}
-          />
-          <Field
-            name="body"
-            type="text"
-            label="Body"
-            multiline
-            rows="4"
-            component={SurveyField}
-          />
+          {renderFields()}
         </Grid>
         <Grid item>
-          <Button>Cancel</Button>
+          <Button component={Link} to="/surveys">
+            Cancel
+          </Button>
         </Grid>
         <Grid item>
           <Button type="submit" variant="raised" color="primary">
-            Submit
+            Next
           </Button>
         </Grid>
       </Grid>
@@ -75,6 +61,19 @@ const SurveyForm = ({ handleSubmit, classes }: Props) => (
 
 const StyledSurveyForm = withStyles(styles)(SurveyForm);
 
+function validate({ recipients, ...values }) {
+  const errors = {};
+  formFields.forEach(({ name }) => {
+    if (!values[name]) {
+      errors[name] = `You must porvide a ${name}`;
+    }
+  });
+  errors.recipients = validateEmails(recipients);
+  return errors;
+}
+
 export default reduxForm({
   form: 'surveyForm',
+  destroyOnUnmount: false,
+  validate,
 })(StyledSurveyForm);
