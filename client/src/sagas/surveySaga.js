@@ -18,6 +18,7 @@ export function* submitSurvey(action) {
   try {
     const data = yield call(postSurvey, action.payload);
     yield put({ type: FETCH_SUCCEEDED, payload: data });
+    action.history.push('/surveys');
   } catch (error) {
     yield put({ type: FETCH_SUCCEEDED, payload: false });
   }

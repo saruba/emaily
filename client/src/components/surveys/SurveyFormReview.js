@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { widthRouter } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
@@ -25,6 +26,7 @@ type Props = {
   formValues: {},
   onCancel: Function,
   submitSurveyActionCreator: Function,
+  history: Object,
   classes: Object,
 };
 
@@ -32,6 +34,7 @@ const SurveyFormReview = ({
   formValues,
   onCancel,
   submitSurveyActionCreator,
+  history,
   classes,
 }: Props) => {
   const reviewFields = formFields.map(({ name, label }) => (
@@ -68,7 +71,7 @@ const SurveyFormReview = ({
             <Button
               variant="raised"
               color="primary"
-              onClick={() => submitSurveyActionCreator(formValues)}
+              onClick={() => submitSurveyActionCreator(formValues, history)}
             >
               Send Survey
             </Button>
@@ -85,4 +88,6 @@ const mapStateToPros = state => ({
 
 const StyledSurveyFormReview = withStyles(styles)(SurveyFormReview);
 
-export default connect(mapStateToPros, actions)(StyledSurveyFormReview);
+export default connect(mapStateToPros, actions)(
+  widthRouter(StyledSurveyFormReview),
+);
