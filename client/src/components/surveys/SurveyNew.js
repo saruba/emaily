@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { reduxForm } from 'redux-form';
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
 
@@ -25,4 +26,6 @@ class SurveyNew extends PureComponent {
   }
 }
 
-export default SurveyNew;
+export default reduxForm({
+  form: 'surveyForm',
+})(SurveyNew);

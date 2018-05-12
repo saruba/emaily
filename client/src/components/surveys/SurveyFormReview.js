@@ -6,6 +6,7 @@ import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
 
+import * as actions from '../../actions';
 import formFields from './formFields';
 
 const styles = theme => ({
@@ -14,21 +15,40 @@ const styles = theme => ({
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
   }),
+  text: {
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
 });
 
 type Props = {
   formValues: {},
   onCancel: Function,
+  submitSurveyActionCreator: Function,
   classes: Object,
 };
 
-const SurveyFormReview = ({ formValues, onCancel, classes }: Props) => {
+const SurveyFormReview = ({
+  formValues,
+  onCancel,
+  submitSurveyActionCreator,
+  classes,
+}: Props) => {
   const reviewFields = formFields.map(({ name, label }) => (
     <Grid item xs={12} key={name}>
-      <Typography variant="subheading" component="label">
+      <Typography
+        className={classes.text}
+        variant="subheading"
+        component="label"
+      >
         {label}
       </Typography>
-      <Typography variant="body2" component="p" gutterBottom>
+      <Typography
+        className={classes.text}
+        variant="body2"
+        component="p"
+        gutterBottom
+      >
         {formValues[name]}
       </Typography>
     </Grid>
@@ -45,7 +65,11 @@ const SurveyFormReview = ({ formValues, onCancel, classes }: Props) => {
             <Button onClick={onCancel}>Back</Button>
           </Grid>
           <Grid item>
-            <Button variant="raised" color="primary">
+            <Button
+              variant="raised"
+              color="primary"
+              onClick={() => submitSurveyActionCreator(formValues)}
+            >
               Send Survey
             </Button>
           </Grid>
@@ -61,4 +85,4 @@ const mapStateToPros = state => ({
 
 const StyledSurveyFormReview = withStyles(styles)(SurveyFormReview);
 
-export default connect(mapStateToPros)(StyledSurveyFormReview);
+export default connect(mapStateToPros, actions)(StyledSurveyFormReview);
