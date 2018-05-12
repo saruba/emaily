@@ -13,10 +13,6 @@ import reducers from './reducers';
 import App from './components/App';
 import rootSaga from './sagas';
 
-import axios from 'axios';
-
-window.axios = axios;
-
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {};

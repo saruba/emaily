@@ -7,6 +7,7 @@ import { withStyles } from 'material-ui/styles';
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 80,
+    paddingBottom: 32,
     flex: '1 1 100%',
     maxWidth: '100%',
     margin: '0 auto',

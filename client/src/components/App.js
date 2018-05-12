@@ -9,7 +9,7 @@ import Header from './Header';
 import AppContent from './AppContent';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
-import SurveyNew from './SurveyNew';
+import SurveyNew from './surveys/SurveyNew';
 
 type Props = {
   // fetchUser: Function,
