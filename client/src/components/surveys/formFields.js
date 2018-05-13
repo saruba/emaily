@@ -1,6 +1,6 @@
 export default [
-  { name: 'subject', label: 'Subject Line' },
   { name: 'title', label: 'Surbey Title' },
+  { name: 'subject', label: 'Subject Line' },
   {
     name: 'body',
     label: 'Email Body',

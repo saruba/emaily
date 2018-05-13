@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { FETCH_SUCCEEDED, SUBMIT_SURVEY } from '../actions/types';
 
 const postSurvey = async values => {
-  const res = await fetch('/api/survey', {
+  const res = await fetch('/api/surveys', {
     method: 'POST',
     body: JSON.stringify(values),
     headers: {

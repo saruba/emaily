@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { widthRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
@@ -89,5 +89,5 @@ const mapStateToPros = state => ({
 const StyledSurveyFormReview = withStyles(styles)(SurveyFormReview);
 
 export default connect(mapStateToPros, actions)(
-  widthRouter(StyledSurveyFormReview),
+  withRouter(StyledSurveyFormReview),
 );
