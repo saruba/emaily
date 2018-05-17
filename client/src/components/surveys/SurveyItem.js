@@ -28,8 +28,6 @@ const SurveyItem = ({ title, yes, no, dateSent, classes }: Props) => (
         <Grid item xs>
           <Typography variant="title" color="textSecondary">
             {title}
-            dfajkfkjladhfjkladsj ilkfnadjs l nfjads fljbnasdui fjklasbji
-            hfblaj;isdkfuiasdbljhfasd lbfljhadsbjlhfadbhab
           </Typography>
         </Grid>
         <Grid item>

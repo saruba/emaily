@@ -25,7 +25,7 @@ const styles = theme => ({
 const Dashboard = ({ classes }: Props) => (
   <section>
     <Typography variant="title" gutterBottom>
-      Dashboard
+      Surveys
     </Typography>
     <SurveyList />
     <Button
