@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 
+import SurveyItem from './SurveyItem';
 import { fetchSurveys } from '../../actions';
 
 type Props = {
@@ -16,13 +14,9 @@ class SurveyList extends PureComponent<Props> {
     this.props.fetchSurveys();
   }
   renderSurveys() {
-    return this.props.surveys.map(survey => (
-      <Card key={survey._id}>
-        <CardContent>
-          <Typography color="textSecondary">{survey.title}</Typography>
-        </CardContent>
-      </Card>
-    ));
+    return this.props.surveys
+      .reverse()
+      .map(({ _id, ...survey }) => <SurveyItem key={_id} {...survey} />);
   }
   render() {
     return <div>{this.renderSurveys()}</div>;
