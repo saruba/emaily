@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import Typography from '@material-ui/core/Typography';
 
-import SagasTest from './SagasTest';
-
 export default () => (
   <Fragment>
     <Typography
@@ -22,6 +20,5 @@ export default () => (
     >
       Collect feedback from your users
     </Typography>
-    <SagasTest />
   </Fragment>
 );

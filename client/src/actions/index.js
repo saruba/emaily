@@ -1,14 +1,19 @@
 import axios from 'axios';
 import {
   FETCH_USER,
-  FETCH_REQUESTED,
+  FETCH_USER_REQUESTED,
+  FETCH_SURVEYS_REQUESTED,
   SUBMIT_TOKEN,
   SUBMIT_SURVEY,
   FETCH_SURVEYS,
 } from './types';
 
 export const fetchUserActionCreator = () => ({
-  type: FETCH_REQUESTED,
+  type: FETCH_USER_REQUESTED,
+});
+
+export const fetchSurveysActionCreator = () => ({
+  type: FETCH_SURVEYS_REQUESTED,
 });
 
 export const handleTokenActionCreator = token => ({

@@ -3,7 +3,8 @@ import { put, takeEvery, all } from 'redux-saga/effects';
 
 import watchFetchUser from './authSaga';
 import watchHandleToken from './stripeSaga';
-import watchSubmitSurvey from './surveySaga';
+import watchSubmitSurvey from './submitSurveySaga';
+import watchFetchSurveysSaga from './fetchSurveysSaga';
 
 export function* incrementAsync() {
   yield delay(1000);
@@ -20,5 +21,6 @@ export default function* rootSaga() {
     watchFetchUser(),
     watchHandleToken(),
     watchSubmitSurvey(),
+    watchFetchSurveysSaga(),
   ]);
 }

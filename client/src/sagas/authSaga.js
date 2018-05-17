@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { FETCH_SUCCEEDED, FETCH_REQUESTED } from '../actions/types';
+import { FETCH_USER_SUCCEEDED, FETCH_USER_REQUESTED } from '../actions/types';
 
 const fetchCurrentUser = async () => {
   const res = await fetch('/api/current_user');
@@ -11,12 +11,12 @@ const fetchCurrentUser = async () => {
 export function* fetchUser() {
   try {
     const data = yield call(fetchCurrentUser);
-    yield put({ type: FETCH_SUCCEEDED, payload: data });
+    yield put({ type: FETCH_USER_SUCCEEDED, payload: data });
   } catch (error) {
-    yield put({ type: FETCH_SUCCEEDED, payload: false });
+    yield put({ type: FETCH_USER_SUCCEEDED, payload: false });
   }
 }
 
 export default function* watchFetchUser() {
-  yield takeEvery(FETCH_REQUESTED, fetchUser);
+  yield takeEvery(FETCH_USER_REQUESTED, fetchUser);
 }

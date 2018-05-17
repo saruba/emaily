@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { FETCH_SUCCEEDED, SUBMIT_SURVEY } from '../actions/types';
+import { FETCH_USER_SUCCEEDED, SUBMIT_SURVEY } from '../actions/types';
 
 const postSurvey = async values => {
   const res = await fetch('/api/surveys', {
@@ -17,10 +17,10 @@ const postSurvey = async values => {
 export function* submitSurvey(action) {
   try {
     const data = yield call(postSurvey, action.payload);
-    yield put({ type: FETCH_SUCCEEDED, payload: data });
+    yield put({ type: FETCH_USER_SUCCEEDED, payload: data });
     action.history.push('/surveys');
   } catch (error) {
-    yield put({ type: FETCH_SUCCEEDED, payload: false });
+    yield put({ type: FETCH_USER_SUCCEEDED, payload: false });
   }
 }
 

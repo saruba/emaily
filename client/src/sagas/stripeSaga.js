@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { FETCH_SUCCEEDED, SUBMIT_TOKEN } from '../actions/types';
+import { FETCH_USER_SUCCEEDED, SUBMIT_TOKEN } from '../actions/types';
 
 const submitToken = async token => {
   const res = await fetch('/api/stripe', {
@@ -17,9 +17,9 @@ const submitToken = async token => {
 export function* handleToken(action) {
   try {
     const data = yield call(submitToken, action.payload);
-    yield put({ type: FETCH_SUCCEEDED, payload: data });
+    yield put({ type: FETCH_USER_SUCCEEDED, payload: data });
   } catch (error) {
-    yield put({ type: FETCH_SUCCEEDED, payload: false });
+    yield put({ type: FETCH_USER_SUCCEEDED, payload: false });
   }
 }
 
