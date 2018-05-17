@@ -23,3 +23,5 @@ yarn-error.log*
 out
 dev.js
 .env*
+
+.vscode
