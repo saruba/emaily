@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 
 import SagasTest from './SagasTest';
 

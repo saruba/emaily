@@ -1,10 +1,12 @@
 // @flow
 import React from 'react';
-import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
+
+import SurveyList from './surveys/SurveyList';
 
 type Props = {
   classes: {
@@ -21,8 +23,11 @@ const styles = theme => ({
 });
 
 const Dashboard = ({ classes }: Props) => (
-  <Typography variant="title" gutterBottom>
-    Dashboard
+  <section>
+    <Typography variant="title" gutterBottom>
+      Dashboard
+    </Typography>
+    <SurveyList />
     <Button
       component={Link}
       to="/surveys/new"
@@ -33,7 +38,7 @@ const Dashboard = ({ classes }: Props) => (
     >
       <AddIcon />
     </Button>
-  </Typography>
+  </section>
 );
 
 export default withStyles(styles)(Dashboard);
